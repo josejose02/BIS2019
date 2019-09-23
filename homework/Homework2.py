@@ -3,19 +3,28 @@ import random
 options = "NSEW"
 list_main = [random.choice(options) for i in range(6)]
 list_copy = list_main[:]
-
 moves = 0
 hp = 3
 
+print("You are trapped in the magic maze!")
+
+
+def remove_hp(hp_down):
+    if hp_down > 1:
+        print("{} lives left!".format(hp_down))
+    else:
+        print("{} life left!".format(hp_down))
+    return hp_down - 1
+
+
 while True:
-    if moves == 10:
-        hp -= 1
-        moves = 0
+    if moves % 10 == 0:
+        hp = remove_hp(hp)
     if not hp:
         print("YOU DIED!")
         break
     if not list_main.__len__():
-        print("YOU ESCAPED!")
+        print("YOU ESCAPED!\nIn {} moves".format(moves))
         break
     print("\n{} rooms left!".format(list_main.__len__()))
     move = input("Enter a move [N/S/E/W] >> ").upper()
@@ -29,5 +38,6 @@ while True:
     else:
         print("WRONG PATH")
         list_main = list_copy[:]
-        hp -= 1
+        hp = remove_hp(hp)
+
 
