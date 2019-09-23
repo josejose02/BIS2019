@@ -2,7 +2,7 @@ import random
 
 options = "NSEW"
 list_main = [random.choice(options) for i in range(6)]
-list_copy = list_main[:]
+list_game = list_main[:]
 moves = 0
 hp = 3
 
@@ -23,21 +23,21 @@ while True:
     if not hp:
         print("YOU DIED!")
         break
-    if not list_main.__len__():
+    if not list_game.__len__():
         print("YOU ESCAPED!\nIn {} moves".format(moves))
         break
-    print("\n{} rooms left!".format(list_main.__len__()))
+    print("\n{} rooms left!".format(list_game.__len__()))
     move = input("Enter a move [N/S/E/W] >> ").upper()
     if move not in options:
         print("Invalid move!")
         continue
     moves += 1
-    if move == list_main[0]:
+    if move == list_game[0]:
         print("Continue!")
-        list_main.__delitem__(0)
+        list_game.__delitem__(0)
     else:
         print("WRONG PATH")
-        list_main = list_copy[:]
+        list_game = list_main[:]
         hp = remove_hp(hp)
 
 
