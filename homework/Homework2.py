@@ -5,6 +5,8 @@ list_main = [random.choice(options) for i in range(6)]
 list_game = list_main[:]
 moves = 0
 hp = 3
+day = "tuesday"
+print(" Hello {}. Today is {}".format("Chloe", day))
 
 print("You are trapped in the magic maze!")
 
@@ -34,10 +36,9 @@ while True:
     moves += 1
     if move == list_game[0]:
         print("Continue!")
-        list_game.__delitem__(0)
+        list_game.remove(list_game[0])
     else:
         print("WRONG PATH")
         list_game = list_main[:]
         hp = remove_hp(hp)
-
 
