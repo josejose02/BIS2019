@@ -23,7 +23,7 @@ while True:
     if not hp:
         print("YOU DIED!")
         break
-    if not list_game.__len__():
+    if not list_game:
         print("YOU ESCAPED!\nIn {} moves".format(moves))
         break
     print("\n{} rooms left!".format(list_game.__len__()))
