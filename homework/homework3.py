@@ -9,6 +9,7 @@ for i in s:
     if i >= temp[-1]:
         temp += i
     else:
-        longest, temp = temp, i
+        if len(temp) >= len(longest):
+            longest, temp = temp, i
 
 print(longest)
