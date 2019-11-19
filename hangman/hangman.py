@@ -6,11 +6,11 @@ import os
 class Hangman:
     DIR = False
 
-    def __init__(self):
+    def __init__(self, word="testword"):
         self.window = Tk()
         self.window.title("Hangman Game")
 
-        self.WORD = "testword"
+        self.WORD = word.lower()
         self.FOUND = ""
         self.WRONG = 0
         self.dir_path = os.path.dirname(os.path.realpath(__file__))
@@ -46,7 +46,7 @@ class Hangman:
         img.grid(row=0, column=0)
 
     def check(self):
-        letter = self.entry.get()[0]
+        letter = self.entry.get()[0].lower()
         print(letter)
         if letter not in self.WORD:
             self.WRONG += 1
@@ -67,4 +67,4 @@ class Hangman:
         lb.grid(row=1, column=0)
 
 
-hm = Hangman()
+hm = Hangman("Happy")
